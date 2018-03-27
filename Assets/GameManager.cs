@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public PlayerData[] players = new PlayerData[numPlayers];
 
+	public Text winScreen;
+
     private void Start()
     {
         instance = this;
@@ -50,9 +53,15 @@ public class GameManager : MonoBehaviour
         {
             if (players[i].Score >= winningScore)
             {
-                Debug.Log("Player " + i + " won.");
-
+				winScreen.text = "Player " + (i+1).ToString() + " won!";
+                winScreen.gameObject.SetActive(true);
+				Invoke("ReturnToMainMenu", 2);
             }
         }
     }
+
+	void ReturnToMainMenu()
+	{
+		SceneManager.LoadScene(0);
+	}
 }
