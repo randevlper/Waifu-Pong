@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1597814933}
   ball: {fileID: 1973230959}
-  ballStartSpeed: 2.5
+  ballStartSpeed: 5
 --- !u!4 &1358445862
 Transform:
   m_ObjectHideFlags: 0
